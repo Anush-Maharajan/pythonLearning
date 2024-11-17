@@ -1,17 +1,14 @@
 import random
 import string
 
-print("""\"You are a Anomaly Detector and your job is to find abnormal
-entity that enters the shelter. Some may be human and some may not....
-Use the necessary data in the lab to find if the person is human or not.\"\n\n\n""")
-input("Press any button to continue.....\n\n\n\n")
-
 testSubjectCount = 5
 subjectCount = 0 #Counts the No. of times the test subject have entered
 anomalyCount = 0 #Counts the No. of anomaly occured
 anomalyEscapeCount = 0 #Counts the No. of anomaly gone on shelter
 killCount = 0 #Counts the No. of Human sent to collection Area
 anomalyCollected = 0 #Counts the No. of anomaly sent to collection Area
+dazeCount = 1 #Tells how much sane the interrogator is (higher value show more no. of anomaly)
+
 testSubjectNames = ["Alver", "Scarlet", "Estella", "Villith", "Wiltio",
                     "Seth", "Shigo", "Avis", "Alvis", "Eiran",
                     "Sylus", "Nora", "Clare", "Alberu", "Nikolai",
@@ -22,13 +19,14 @@ testSubjectIDs = ['QW2834', 'ZX4501', 'UV9203', 'BC7654', 'ER1298',
                  'JD2741', 'HR8392', 'YT0538', 'DF6209', 'OP3948', 
                  'NB5720', 'AK1703', 'SM4825', 'VG1930', 'WL3094']
 
-subjectDictionary = {'Alver' : 'QW2234'}
-
 testSubjectIDwName = list(zip(testSubjectNames, testSubjectIDs))
 
-testSubjectReason = ["Oh, I  was out collecting samples.", "I was collecting the scraps.", "I went outside to transport the samples.",
-                     "I went out to collect resources.", "I was hunting the anomalies.", "I went out to get milk!", "I was following my friend.",
-                     "I wanted to sketch the landscapes", "I was looking for stranded survivors", "The shelter has structural issues, overcrowding, and violence. It's no longer safe.",
+testSubjectReason = ["Oh, I  was out collecting samples.", "I was collecting the scraps.",
+                     "I went outside to transport the samples.",
+                     "I went out to collect resources.", "I was hunting the anomalies.",
+                     "I went out to get milk!", "I was following my friend.",
+                     "I wanted to sketch the landscapes", "I was looking for stranded survivors",
+                     "The shelter has structural issues, overcrowding, and violence. It's no longer safe.",
                      "We're out of essential resources like food, water, and medical supplies.",
                      "I need medical treatment that's only available outside the shelter.",
                      "I need to find my family and friends to ensure their safety.",
@@ -42,8 +40,6 @@ def testSubjectInteraction():
     testSubjectDialogue = ["Can I go in?\n\n", "What are my reports, interrogator?\n\n", "Am I free to go in?\n\n",
                          "Can you hurry up?\n\n", "Hello, may I ask about my report?\n\n"]
     print(testSubjectDialogue[random.randint(0,4)])
-
-def print_colored(text, color_code): print(f"\033[{color_code}m{text}\033[0m")
     
 def userDecision():
     print("""1)You are clear.\t\t2)What is  your name?\n3)Give me your ID!\t\t4)Show ID List
@@ -61,15 +57,22 @@ def generate_id():
     numbers = ''.join(random.choices(string.digits, k=4))
     return letters + numbers
 
+print("""\"n\n\n\nYou are a Anomaly Detector and your job is to find abnormal
+entity that enters the shelter. Some may be human and some may not....
+Use the necessary data in the lab to find if the person is human or not.\"\n\n\n""")
+
+input("Press enter to continue.....\n")
+
 while subjectCount != testSubjectCount:
     testSubject = testSubjectNames[random.randint(0,19)]
-    if random.randint(1,10) > 5:
+    if random.randint(1,10) > dazeCount:
         testSubjectID = IDfromName(testSubjectIDwName,testSubject)
     else:
         testSubjectID = generate_id()
         anomalyCount+=1
+    
     reasonToLeave = testSubjectReason[random.randint(0,17)]
-    print("\n\n\nA new test subject enters the lab...\n")
+    print("\n\nA new test subject enters the lab...\n")
     testSubjectInteraction()
     decision = userDecision()
     

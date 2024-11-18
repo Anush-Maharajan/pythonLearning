@@ -36,6 +36,12 @@ testSubjectReason = ["Oh, I  was out collecting samples.", "I was collecting the
                      "I want to help those in more dire situations outside the shelter.",
                      "Bravery is needed to confront and solve the root problems."]
 
+def subjectWithNoticeOFArrival():
+    arrivalNotice = []
+    for x in testSubjectNames:
+        if random.randint(-1,1) == 0:
+            arrivalNotice.append(x)
+
 def testSubjectInteraction():
     testSubjectDialogue = ["Can I go in?\n\n", "What are my reports, interrogator?\n\n", "Am I free to go in?\n\n",
                          "Can you hurry up?\n\n", "Hello, may I ask about my report?\n\n"]

@@ -1,3 +1,4 @@
+#Do while loop
 while True:
     st = input("Enter Here: ")
     if st == "stop":
@@ -8,6 +9,7 @@ while True:
         pass
     print("Test", st)
 
+#How was the experience
 while True:
     choice = input("How was it: ")
     if choice == "good":

@@ -5,7 +5,7 @@ from random import randint
 this_list = list()
 # Sample list (iterable)
 for _ in range(100):
-    x = r.randint(0,9)
+    x = r.randint(0, 9)
     this_list.append(x)
 
 # Create a Counter object

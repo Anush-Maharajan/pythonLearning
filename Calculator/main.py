@@ -1,6 +1,9 @@
-import Calculator.calc as calc
+import add_num
+import sub_num
 
-total = calc.add(10, 2)
-difference = calc.sub(10, 2)
+total = add_num.add(10, 2)
+difference = sub_num.sub(10, 2)
 
-print(f"The sum is {total} and the difference is {difference}.")
+# print(f"The sum is {total} and the difference is {difference}.")
+
+print("The sum is : ", total, " and the diffrence is : ", difference)

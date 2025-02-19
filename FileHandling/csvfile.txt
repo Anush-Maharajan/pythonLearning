@@ -1,3 +1,0 @@
-nula,16,chef
-biraj,18,admin
-Sital,19,manager

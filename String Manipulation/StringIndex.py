@@ -19,3 +19,7 @@ print(st.find("Python"))
 
 # string stripping
 print(st.strip())
+
+print(st[:])
+
+print(st[::-1])
